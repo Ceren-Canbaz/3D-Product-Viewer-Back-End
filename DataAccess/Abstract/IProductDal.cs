@@ -11,5 +11,7 @@ namespace DataAccess.Abstract
 		void Add(Product product);
 		void Update(Product product);
 		void Delete(Product product);
+		//ürünleri kategoriye göre filtreleme
+		List<Product> GetAllByCategory(int categoryId);
 	}
 }

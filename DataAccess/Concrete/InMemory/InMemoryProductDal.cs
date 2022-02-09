@@ -40,6 +40,7 @@ namespace DataAccess.Concrete.InMemory
 			//	}
 			//}
 
+			//LINQ- Language Integrated Query
 			//SingleOrDefault listenin içindeki elemanları dolaşacaktır
 			//alternative method with LINQ
 			productToDelete = _products.SingleOrDefault(p=>p.ProductId==product.ProductId);
@@ -51,10 +52,23 @@ namespace DataAccess.Concrete.InMemory
 		{
 			return _products;
 		}
+		//urunleri kategoriye göre filtreleme
+		public List<Product> GetAllByCategory(int categoryId)
+		{
+			//where methodu içindeki şarta uyan elemanları yeni bir liste haline getirip döndürür
+			return _products.Where(p => p.CategoryId == categoryId).ToList();
+		}
 
 		public void Update(Product product)
 		{
-			throw new NotImplementedException();
+			//Gelen urunidsine göre sahip olunan listedeki ürünü bul
+			Product productToUpdate = productToUpdate = _products.SingleOrDefault(p => p.ProductId == product.ProductId);
+			productToUpdate.ProductName = product.ProductName;
+			productToUpdate.CategoryId = product.CategoryId;
+			productToUpdate.UnitPrice = product.UnitPrice;
+			productToUpdate.UnitsInStock = product.UnitsInStock;
+
+
 		}
 	}
 }
