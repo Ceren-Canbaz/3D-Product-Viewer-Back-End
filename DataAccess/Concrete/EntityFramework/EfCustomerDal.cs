@@ -7,29 +7,29 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-	public class EfProductDal : IProductDal
+	public class EfCustomerDal : ICustomerDal
 	{
-		public void Add(Product entity)
+		public void Add(Customer entity)
 		{
 			throw new NotImplementedException();
 		}
 
-		public void Delete(Product entity)
+		public void Delete(Customer entity)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Product Get(Expression<Func<Product, bool>> filter)
+		public Customer Get(Expression<Func<Customer, bool>> filter)
 		{
 			throw new NotImplementedException();
 		}
 
-		public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
+		public List<Customer> GetAll(Expression<Func<Customer, bool>> filter = null)
 		{
 			throw new NotImplementedException();
 		}
 
-		public void Update(Product entity)
+		public void Update(Customer entity)
 		{
 			throw new NotImplementedException();
 		}
