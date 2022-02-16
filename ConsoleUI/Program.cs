@@ -10,15 +10,25 @@ namespace ConsoleUI
 		static void Main(string[] args)
 		{
 			//test ortamı
+			//ProductTest();
+			CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+			foreach (var category in categoryManager.GetAll())
+			{
+				Console.WriteLine(category.CategoryName);
+			}
+
+		}
+
+		private static void ProductTest()
+		{
 			ProductManager produtcManager = new ProductManager(new EfProductDal());
 			foreach (var product in produtcManager.GetAllByCategory(2))
 			{
 				Console.WriteLine(product.ProductName);
 			}
 			ProductManager productManager2 = new ProductManager(new EfProductDal());
-			string name=productManager2.Get(2).ProductName;
-			Console.WriteLine("idsi 2 olan ürünün ismi: "+name);
-			
+			string name = productManager2.Get(2).ProductName;
+			Console.WriteLine("idsi 2 olan ürünün ismi: " + name);
 		}
 	}
 }
