@@ -35,9 +35,18 @@ namespace ConsoleUI
 			//ProductManager productManager2 = new ProductManager(new EfProductDal());
 			//string name = productManager2.Get(2).ProductName;
 			//Console.WriteLine("idsi 2 olan ürünün ismi: " + name);
-			foreach (var product in produtcManager.GetProductDetails())
+			var result = produtcManager.GetProductDetails();
+
+			if (result.Success==true)
 			{
-				Console.WriteLine(product.ProductName+ "/"+ product.CategoryName);
+				foreach (var product in result.Data)
+				{
+					Console.WriteLine("Product Name: "+product.ProductName + " Category Name: " + product.CategoryName);
+				}
+			}
+			else
+			{
+				Console.WriteLine(result.Message);
 			}
 	
 		}
