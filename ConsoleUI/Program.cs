@@ -19,7 +19,7 @@ namespace ConsoleUI
 		private static void CategoryTest()
 		{
 			CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-			foreach (var category in categoryManager.GetAll())
+			foreach (var category in categoryManager.GetAll().Data)
 			{
 				Console.WriteLine(category.CategoryName);
 			}
@@ -27,7 +27,7 @@ namespace ConsoleUI
 
 		private static void ProductTest()
 		{
-			ProductManager produtcManager = new ProductManager(new EfProductDal());
+			//ProductManager produtcManager = new ProductManager(new EfProductDal(),new CategoryManager(new EfCategoryDal()));
 			//foreach (var product in produtcManager.GetAllByCategory(2))
 			//{
 			//	Console.WriteLine(product.ProductName);
@@ -35,7 +35,7 @@ namespace ConsoleUI
 			//ProductManager productManager2 = new ProductManager(new EfProductDal());
 			//string name = productManager2.Get(2).ProductName;
 			//Console.WriteLine("idsi 2 olan ürünün ismi: " + name);
-			var result = produtcManager.GetProductDetails();
+			//var result = produtcManager.GetProductDetails();
 
 			if (result.Success==true)
 			{
